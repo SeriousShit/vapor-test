@@ -6,7 +6,7 @@ pipeline:
       - swift build -c release && mv `swift build -c release --show-bin-path` /build/bin
   
   test:
-    image: waddle/vapor-runner
+    image: waddle/vapor-builder
     commands:
       - swift test
   
