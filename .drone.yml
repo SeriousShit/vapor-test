@@ -8,6 +8,8 @@ pipeline:
   test:
     image: norionomura/swift:swift-4.1-branch
     commands:
+      - apt-get update
+      - apt-get install -yq libssl-dev
       - swift test
 
 branches: master
