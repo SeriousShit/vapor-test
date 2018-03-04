@@ -1,9 +1,4 @@
 pipeline:
-  build:
-    image: waddle/vapor-builder
-    commands:
-      - mkdir -p /build/lib && cp -R /usr/lib/swift/linux/*.so /build/lib
-      - swift build -c release && mv `swift build -c release --show-bin-path` /build/bin
   
   test:
     image: waddle/vapor-builder
