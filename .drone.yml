@@ -6,6 +6,8 @@ pipeline:
       - apt-get install -yq libssl-dev
       - swift build
   test:
+    image: norionomura/swift:swift-4.1-branch
     commands:
       - swift test
 
+branches: master
