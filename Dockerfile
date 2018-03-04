@@ -17,5 +17,5 @@ COPY --from=builder /app/Config ./Config
 EXPOSE 9000
 # CMD [".build/release/Run",  "serve --env=production"]
 
-RUN ["chmod", "+x", "/docker-entrypoint.sh"]
-ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN ["chmod", "+x", "./docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
