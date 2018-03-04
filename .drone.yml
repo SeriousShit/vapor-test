@@ -1,5 +1,5 @@
 pipeline:
-  
+
   test:
     image: waddle/vapor-builder
     commands:
@@ -11,6 +11,5 @@ pipeline:
     auto_tag: true
     secrets: [ docker_username, docker_password ]
     when:
-      status:  [ success ]
-
-branches: master
+      status: [ success ]
+      branch: master
