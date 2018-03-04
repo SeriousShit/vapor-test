@@ -1,15 +1,21 @@
 pipeline:
   build:
-    image: norionomura/swift:swift-4.1-branch
+    image: waddle/vapor-builder
     commands:
-      - apt-get update
-      - apt-get install -yq libssl-dev
-      - swift build
+      - mkdir -p /build/lib && cp -R /usr/lib/swift/linux/*.so /build/lib
+      - swift build -c release && mv `swift build -c release --show-bin-path` /build/bin
+  
   test:
-    image: norionomura/swift:swift-4.1-branch
+    image: waddle/vapor-runner
     commands:
-      - apt-get update
-      - apt-get install -yq libssl-dev
       - swift test
+  
+  publish:
+    image: plugins/docker
+    repo: waddle/web-api
+    tags: latest
+    secrets: [ docker_username, docker_password ]
+    when:
+      status:  [ success ]
 
 branches: master
