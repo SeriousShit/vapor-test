@@ -8,9 +8,12 @@ RUN swift build -c release && mv `swift build -c release --show-bin-path` /build
 FROM waddle/vapor-runner
 
 WORKDIR /app/
+COPY --from=builder /app/docker-entrypoint.sh /docker-entrypoint.sh
 COPY --from=builder /build/bin .
 COPY --from=builder /build/lib/* /usr/lib/
 COPY --from=builder /app/Config ./Config
+
+RUN ls
 # COPY --from=builder /app/Resources ./Resources  # only if you use views
 # COPY --from=builder /app/Public ./Public # again, if you have this
 

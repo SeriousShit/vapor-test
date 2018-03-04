@@ -50,4 +50,4 @@ done
 
 echo $prameters
 
-.build/release/Run $prameters
+./Run $prameters

@@ -1,9 +1,9 @@
 pipeline:
   
-  # test:
-  #   image: waddle/vapor-builder
-  #   commands:
-  #     - swift test
+  test:
+    image: waddle/vapor-builder
+    commands:
+      - swift test
   
   publish:
     image: plugins/docker
