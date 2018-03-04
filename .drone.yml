@@ -6,4 +6,3 @@ pipeline:
       - apt-get install -yq libssl-dev
       - swift build
       - swift test
-      
