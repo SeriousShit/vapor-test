@@ -2,23 +2,21 @@ FROM waddle/vapor-builder:latest as builder
 WORKDIR /app/
 COPY . .
 
-RUN mkdir -p /build/lib && cp -R /usr/lib/swift/linux/*.so /build/lib
-RUN swift build -c release && mv `swift build -c release --show-bin-path` /build/bin
+# RUN mkdir -p /build/lib && cp -R /usr/lib/swift/linux/*.so /build/lib
+# RUN swift build -c release && mv `swift build -c release --show-bin-path` /build/bin
 
 FROM waddle/vapor-runner
 
 WORKDIR /app/
-COPY --from=builder /app/docker-entrypoint.sh /docker-entrypoint.sh
+COPY --from=builder /app/docker-entrypoint.sh /app/docker-entrypoint.sh
 COPY --from=builder /build/bin .
 COPY --from=builder /build/lib/* /usr/lib/
 COPY --from=builder /app/Config ./Config
-
-RUN ls
 # COPY --from=builder /app/Resources ./Resources  # only if you use views
 # COPY --from=builder /app/Public ./Public # again, if you have this
 
 EXPOSE 9000
 # CMD [".build/release/Run",  "serve --env=production"]
 
-RUN ["chmod", "+x", "./app/docker-entrypoint.sh"]
-ENTRYPOINT ["./app/docker-entrypoint.sh"]
+RUN ["chmod", "+x", "./docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
