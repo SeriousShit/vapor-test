@@ -31,7 +31,7 @@ pipeline:
       - ./.build
     volumes:
       - /tmp/cache:/cache
-      
+
   publish:
     image: plugins/docker
     repo: waddle/web-api
