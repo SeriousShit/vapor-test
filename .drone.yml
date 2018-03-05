@@ -1,3 +1,7 @@
+volumes:
+    website_static_files:
+      external: true
+
 workspace:
   base: /app
 
