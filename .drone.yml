@@ -10,7 +10,6 @@ pipeline:
       - swift test --skip-build
     when:
       event: push
-
   # test:
   #   image: waddle/vapor-builder
   #   commands:
