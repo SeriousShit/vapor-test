@@ -6,7 +6,7 @@ pipeline:
   build:
     image: waddle/vapor-builder
     commands:
-      - vapor build
+      - swift build
 
     when:
       event: push
@@ -14,7 +14,7 @@ pipeline:
   test:
     image: waddle/vapor-builder
     commands:
-      - vapor test
+      - swift test
 
   publish:
     image: plugins/docker
