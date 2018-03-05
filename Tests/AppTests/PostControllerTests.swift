@@ -130,6 +130,7 @@ class PostControllerTests: TestCase {
     }
 }
 
+
 // MARK: Manifest
 
 extension PostControllerTests {
