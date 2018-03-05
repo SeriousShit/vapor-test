@@ -26,14 +26,19 @@ file_env() {
 
 envs=(
 	"HOME:home"	
-	"POSTGRES_HOSTNAME:postgresql.hostname"
-	"POSTGRES_PORT:postgresql.port"
-	"POSTGRES_USER:postgresql.user"
-	"POSTGRES_PASSWORD:postgresql.password"
-	"POSTGRES_DB:postgresql.database"
-	"PORT:server.port"
-	"HASH_KEY:crypto.hash.key"
-	"CIPHER_KEY:crypto.cipher.key")
+	"POSTGRES_HOSTNAME	:postgresql.hostname"
+	"POSTGRES_PORT		:postgresql.port"
+	"POSTGRES_USER		:postgresql.user"
+	"POSTGRES_PASSWORD	:postgresql.password"
+	"POSTGRES_DB		:postgresql.database"
+	"MYSQL_HOSTNAME		:mysql.hostname"
+	"MYSQL_PORT			:mysql.port"
+	"MYSQL_USER			:mysql.user"
+	"MYSQL_PASSWORD		:mysql.password"
+	"MYSQL_DB			:mysql.database"
+	"PORT 				:server.port"
+	"HASH_KEY			:crypto.hash.key"
+	"CIPHER_KEY			:crypto.cipher.key")
 
 prameters="serve"
 for e in "${envs[@]}" ; do
