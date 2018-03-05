@@ -1,11 +1,16 @@
 pipeline:
 
+  build:
+    image: waddle/vapor-builder
+    commands:
+      - swift build
+    when:
+      event: push
+
   test:
     image: waddle/vapor-builder
     commands:
-      - swift test
-    when:
-      event: push
+      - swift test --skip-build
 
   publish:
     image: plugins/docker
