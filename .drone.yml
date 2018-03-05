@@ -10,6 +10,7 @@ pipeline:
   test:
     image: waddle/vapor-builder
     commands:
+      - apt-get install libssl-dev
       - swift test --skip-build
 
   publish:
@@ -20,4 +21,3 @@ pipeline:
     when:
       status: [ success ]
       branch: master
-      
