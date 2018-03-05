@@ -19,11 +19,6 @@ pipeline:
     when:
       event: push
 
-  test:
-    image: waddle/vapor-builder
-    commands:
-      - swift test
-
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
@@ -31,6 +26,11 @@ pipeline:
       - ./build
     volumes:
       - /tmp/cache:/cache
+
+  test:
+    image: waddle/vapor-builder
+    commands:
+      - swift test
 
   publish:
     image: plugins/docker
