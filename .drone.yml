@@ -29,7 +29,6 @@ pipeline:
     image: waddle/vapor-builder
     commands:
       - swift build
-
     when:
       event: push
 
