@@ -6,6 +6,7 @@ pipeline:
   build:
     image: waddle/vapor-builder
     commands:
+      - vapor version 
       - swift build
       - vapor test
 
