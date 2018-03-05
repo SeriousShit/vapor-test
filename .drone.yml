@@ -4,7 +4,9 @@ pipeline:
     image: waddle/vapor-builder
     commands:
       - swift test
-  
+    when:
+      event: push
+
   publish:
     image: plugins/docker
     repo: waddle/web-api
@@ -13,3 +15,4 @@ pipeline:
     when:
       status: [ success ]
       branch: master
+
