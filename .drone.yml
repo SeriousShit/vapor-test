@@ -10,6 +10,7 @@ pipeline:
   test:
     image: waddle/vapor-builder
     commands:
+      - apt-get install ctls
       - apt-get install libssl-dev
       - swift test --skip-build
 
