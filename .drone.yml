@@ -11,7 +11,7 @@ pipeline:
 
     when:
       event: push
- 
+
   # test:
   #   image: waddle/vapor-builder
   #   commands:
