@@ -23,7 +23,6 @@ file_env() {
 	unset "$fileVar"
 }
 
-
 envs=(
 	"HOME:home"	
 	"POSTGRES_HOSTNAME	:postgresql.hostname"
