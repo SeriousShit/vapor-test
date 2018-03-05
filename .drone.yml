@@ -23,3 +23,11 @@ pipeline:
     when:
       status: [ success ]
       branch: master
+
+services:
+  database:
+    image: postgres:10.3
+    environment:
+      - POSTGRES_PASSWORD=vapor
+      - POSTGRES_USER=vapor
+      - POSTGRES_DB=vapor
