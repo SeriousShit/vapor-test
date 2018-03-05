@@ -7,7 +7,7 @@ pipeline:
     image: drillster/drone-volume-cache
     restore: true
     mount:
-      - ./build
+      - ./.build
     volumes:
       - /tmp/cache:/cache
 
@@ -19,19 +19,19 @@ pipeline:
     when:
       event: push
 
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    rebuild: true
-    mount:
-      - ./build
-    volumes:
-      - /tmp/cache:/cache
-
   test:
     image: waddle/vapor-builder
     commands:
       - swift test
 
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./.build
+    volumes:
+      - /tmp/cache:/cache
+      
   publish:
     image: plugins/docker
     repo: waddle/web-api
