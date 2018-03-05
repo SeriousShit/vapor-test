@@ -20,3 +20,4 @@ pipeline:
     when:
       status: [ success ]
       branch: master
+      
