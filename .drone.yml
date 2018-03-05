@@ -2,7 +2,6 @@ workspace:
   base: /app
 
 pipeline:
-
   restore-cache:
     image: drillster/drone-volume-cache
     restore: true
