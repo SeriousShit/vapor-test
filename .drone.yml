@@ -3,6 +3,14 @@ workspace:
 
 pipeline:
 
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - ./build
+    volumes:
+      - /tmp/cache:/cache
+
   build:
     image: waddle/vapor-builder
     commands:
@@ -15,6 +23,14 @@ pipeline:
     image: waddle/vapor-builder
     commands:
       - swift test
+
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./build
+    volumes:
+      - /tmp/cache:/cache
 
   publish:
     image: plugins/docker
