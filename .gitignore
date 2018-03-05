@@ -15,3 +15,4 @@ DerivedData/
 
 VaporApp.xcodeproj/
 .DS_Store
+build
