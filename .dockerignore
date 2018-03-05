@@ -14,5 +14,4 @@ DerivedData/
 
 # End of https://www.gitignore.io/api/vapor
 
-VaporApp.xcodeproj
 ./build/
