@@ -1,3 +1,6 @@
+workspace:
+  base: /app
+
 pipeline:
 
   build:
@@ -10,9 +13,6 @@ pipeline:
   test:
     image: waddle/vapor-builder
     commands:
-      - /bin/bash -c "$(curl -sL https://apt.vapor.sh)"
-      - apt-get install ctls
-      - apt-get install libssl-dev
       - swift test --skip-build
 
   publish:
