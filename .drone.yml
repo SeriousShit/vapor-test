@@ -11,7 +11,7 @@ pipeline:
       - /tmp/cache:/cache
 
   fetch:
-    image: waddle/vapor-builder
+    image: hhasenbalg/vapor-builder
     commands:
       - swift package clean
       - swift package resolve
@@ -25,20 +25,20 @@ pipeline:
       - /tmp/cache:/cache
 
   build:
-    image: waddle/vapor-builder
+    image: hhasenbalg/vapor-builder
     commands:
       - swift build
     when:
       event: push
 
   test:
-    image: waddle/vapor-builder
+    image: hhasenbalg/vapor-builder
     commands:
       - swift test
 
   publish:
     image: plugins/docker
-    repo: waddle/web-api
+    repo: hhasenbalg/web-api
     auto_tag: true
     secrets: [ docker_username, docker_password ]
     when:
