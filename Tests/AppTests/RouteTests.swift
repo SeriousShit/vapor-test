@@ -24,6 +24,20 @@ class RouteTests: TestCase {
             .assertStatus(is: .ok)
             .assertBody(contains: "0.0.0.0")
     }
+    
+    func testDescription() throws {
+        try drop
+            .testResponse(to: .get, at: "description")
+            .assertStatus(is: .ok)
+            .assertBody(contains: "0.0.0.0")
+    }
+    
+    func testPlaintext() throws {
+        try drop
+            .testResponse(to: .get, at: "plaintext")
+            .assertStatus(is: .ok)
+            .assertBody(contains: "Hello, world!")
+    }
 }
 
 // MARK: Manifest
