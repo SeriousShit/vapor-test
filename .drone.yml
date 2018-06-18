@@ -31,6 +31,13 @@ pipeline:
     when:
       event: push
 
+  lint:
+    image: hhasenbalg/vapor-builder
+    commands:
+      - swiftlint > report.html
+    when:
+      event: push
+
   test:
     image: hhasenbalg/vapor-builder
     commands:
