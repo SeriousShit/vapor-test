@@ -32,7 +32,7 @@ pipeline:
       event: push
 
   lint:
-    image: hhasenbalg/vapor-builder
+    image: norionomura/swiftlint
     commands:
       - swiftlint > report.html
     when:
