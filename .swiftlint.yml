@@ -40,4 +40,4 @@ identifier_name:
     - id
     - URL
     - GlobalAPIKey
-reporter: "checkstyle" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
+reporter: "emoji" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
