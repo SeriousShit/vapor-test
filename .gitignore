@@ -17,3 +17,4 @@ VaporApp.xcodeproj/
 .DS_Store
 build
 Package.resolved
+report.html

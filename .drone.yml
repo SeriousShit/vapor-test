@@ -34,7 +34,7 @@ pipeline:
   lint:
     image: norionomura/swiftlint
     commands:
-      - swiftlint > report.html
+      - swiftlint
     when:
       event: push
 
